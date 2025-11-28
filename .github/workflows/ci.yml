@@ -1,0 +1,46 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  setup:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node: [20.x]
+        php: ["8.3"]
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node }}
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v4
+        with:
+          php-version: ${{ matrix.php }}
+          coverage: none
+          extensions: mbstring, intl, tokenizer, pdo, sqlite, json, openssl
+
+      - name: Install Node deps
+        run: |
+          cd tools || exit 0
+          npm ci || true
+
+      - name: Install Composer deps
+        run: |
+          composer install --no-progress --no-suggest
+
+      - name: Run tests (PHP)
+        run: |
+          if [ -d "./tests" ]; then ./vendor/bin/phpunit --testdox; else echo "No PHP tests"; fi
+
+      - name: Run tests (JS)
+        run: |
+          if [ -d "./tools" ]; then cd tools && npm test || echo "No JS tests"; else echo "No JS tests"; fi

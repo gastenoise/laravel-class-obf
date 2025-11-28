@@ -1,0 +1,9 @@
+# Owners for core directories
+/src/ @gastenoise
+/tools/ @gastenoise
+/js-runtime/ @gastenoise
+/.github/ @gastenoise
+/examples/ @gastenoise
+
+# All other prs require review by at least one codeowner
+* @gastenoise
