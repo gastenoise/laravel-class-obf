@@ -13,7 +13,7 @@ class BuildCommand extends Command {
 
         $this->info("Running ClassObf build (mode: $mode)");
 
-        $cmd = realpath(__DIR__ . '/../../../../tools/obfuscate.js');
+        $cmd = realpath(__DIR__ . '/../tools/obfuscate.js');
 
         if (! file_exists($cmd)) {
             $this->error("Node tool not found: $cmd");
@@ -66,5 +66,13 @@ class BuildCommand extends Command {
         // TODO: generar public/build-obf/* en el próximo paso
 
         return Command::SUCCESS;
+    }
+
+    public function testPath() {
+        return [
+            '__DIR__' => __DIR__,
+            'raw' => __DIR__ . '/../tools/obfuscate.js',
+            'real' => realpath(__DIR__ . '/../tools/obfuscate.js')
+        ];
     }
 }
