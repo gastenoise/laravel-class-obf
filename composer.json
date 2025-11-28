@@ -1,5 +1,5 @@
 {
-    "name": "your-vendor/laravel-class-obfuscator",
+    "name": "gastenoise/laravel-class-obf",
     "description": "A Laravel-compatible runtime class obfuscation library for PHP and JS bindings.",
     "type": "library",
     "license": "MIT",
@@ -15,8 +15,9 @@
     ],
     "authors": [
         {
-            "name": "Gastón",
-            "role": "Lead Developer"
+            "name": "Gastón Urgorri",
+            "role": "Lead Developer",
+            "email": "urgorrigaston@gmail.com"
         }
     ],
     "require": {
@@ -25,25 +26,18 @@
     },
     "autoload": {
         "psr-4": {
-            "ClassObfuscator\\": "src/"
-        }
-    },
-    "autoload-dev": {
-        "psr-4": {
-            "ClassObfuscator\\Tests\\": "tests/"
-        }
+            "LaravelClassObf\\": "src/"
+        },
+        "files": [
+            "src/helpers.php"
+        ]
     },
     "extra": {
         "laravel": {
             "providers": [
-                "ClassObfuscator\\ClassObfuscatorServiceProvider"
+                "LaravelClassObf\\ClassObfServiceProvider"
             ]
         }
     },
-    "minimum-stability": "stable",
-    "prefer-stable": true,
-    "scripts": {
-        "test": "phpunit",
-        "lint": "php -l src"
-    }
+    "minimum-stability": "dev"
 }
