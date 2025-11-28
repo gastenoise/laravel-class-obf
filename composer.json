@@ -3,6 +3,7 @@
     "description": "A Laravel-compatible runtime class obfuscation library for PHP and JS bindings.",
     "type": "library",
     "license": "MIT",
+    "version": "0.0.1",
     "keywords": [
         "laravel",
         "obfuscator",
@@ -39,5 +40,6 @@
             ]
         }
     },
-    "minimum-stability": "dev"
+    "minimum-stability": "dev",
+    "prefer-stable": false
 }
