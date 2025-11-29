@@ -1,0 +1,14 @@
+{
+  "name": "class-obf-tools",
+  "version": "0.1.0",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "test": "cross-env NODE_OPTIONS=--experimental-vm-modules jest",
+    "obfuscate": "node obfuscate.js"
+  },
+  "devDependencies": {
+    "cross-env": "^10.1.0",
+    "jest": "^29.7.0"
+  }
+}
