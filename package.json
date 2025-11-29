@@ -1,0 +1,10 @@
+{
+    "name": "laravel-class-obf",
+    "version": "0.0.1",
+    "description": "Internal tools for class obfuscation",
+    "private": true,
+    "type": "commonjs",
+    "bin": {
+        "classobf": "./tools/obfuscate.js"
+    }
+}

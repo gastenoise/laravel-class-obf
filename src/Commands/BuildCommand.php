@@ -13,15 +13,15 @@ class BuildCommand extends Command {
 
         $this->info("Running ClassObf build (mode: $mode)");
 
-        $cmd = realpath(__DIR__ . '/../tools/obfuscate.js');
+        $toolPath = realpath(dirname(__DIR__, 2) . DIRECTORY_SEPARATOR . 'tools' . DIRECTORY_SEPARATOR . 'obfuscate.js');
 
-        if (! file_exists($cmd)) {
-            $this->error("Node tool not found: $cmd");
-            return Command::FAILURE;
+        if (!$toolPath || !file_exists($toolPath)) {
+            $this->error("Node tool not found at: " . ($toolPath ?: 'INVALID PATH'));
+            return 1;
         }
 
         $process = proc_open(
-            ["node", $cmd],
+            ["node", $toolPath],
             [
                 1 => ['pipe', 'w'], // stdout
                 2 => ['pipe', 'w'], // stderr
