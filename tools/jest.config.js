@@ -1,7 +1,5 @@
 export default {
     testEnvironment: "node",
     transform: {},
-    moduleNameMapper: {
-        "^(\\.{1,2}/.*)\\.js$": "$1.js"
-    }
+    moduleFileExtensions: ['js', 'json', 'node'],
 };
