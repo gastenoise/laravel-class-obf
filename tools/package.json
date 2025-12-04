@@ -5,11 +5,15 @@
   "private": true,
   "scripts": {
     "test": "cross-env NODE_OPTIONS=--experimental-vm-modules jest",
-    "obfuscate": "node obfuscate.js"
+    "test:watch": "jest --watchAll",
+    "obfuscate": "node obfuscate.js",
+    "lint": "echo \"no lint configured\""
   },
   "devDependencies": {
     "cross-env": "^10.1.0",
-    "jest": "^29.7.0"
+    "jest": "^29.7.0",
+    "parse5": "^7.1.1",
+    "glob": "^10.2.7"
   },
   "dependencies": {
     "postcss": "^8.5.6",
